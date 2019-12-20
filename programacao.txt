@@ -1,0 +1,2 @@
+Q48, 2, frog, 0, 15, burpe, 0, 30
+G07, 2, Agaixamento, 0, 15, polichinelo, 0, 15['frog', [0, 15]]
