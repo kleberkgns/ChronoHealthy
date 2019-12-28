@@ -24,7 +24,7 @@ def definir_prog():
                 escolha = int(input('1 - Sim\n'
                                     '2 - Não\n'))
                 if escolha != 1 and escolha != 2:
-                    print('Escolha inválida!')
+                    print('Escolha inválida!\n'+32*'-')
                     validacao = False
                 else:
                     if escolha == 1:
@@ -35,7 +35,7 @@ def definir_prog():
             cond1 = False
         programacao.append(programaNome)
         programacao.append(exercicios)
-    for i in range(0, len(programacao)):
+    for i in range(0, len(programacao)): # Verificação do que irá ser gravado no arquivo
         print(programacao[i])
 
     gravar(programacao)
@@ -61,7 +61,7 @@ def cronometro():
 def gravar(programacao):
     exercicios = str(programacao)
     file = open('programacao.txt', 'a')
-    file.writelines(exercicios+'\n') # Verificação de teste do que foi gravado no arquivo
+    file.writelines(exercicios+'\n') # Grava uma programação por linha no arquivo
     file.close()
 
 def abrir_arq():
