@@ -1,6 +1,5 @@
 import time
 
-# Método OK
 def definir_prog():
     print('\n'+8*'=--='+'\n')
     programacao = []
@@ -19,23 +18,11 @@ def definir_prog():
             exercicios.append([m, s])
             print(32*'-'+'\n')
             validacao = False
-            while validacao != True:
-                print('Deseja adicionar mais exercicios?')
-                escolha = int(input('1 - Sim\n'
-                                    '2 - Não\n'))
-                if escolha != 1 and escolha != 2:
-                    print('Escolha inválida!\n'+32*'-')
-                    validacao = False
-                else:
-                    if escolha == 1:
-                        cond2 = True
-                    if escolha == 2:
-                        cond2 = False
-                    validacao = True
+            cond2 = escolha(validacao)
             cond1 = False
         programacao.append(programaNome)
         programacao.append(exercicios)
-    for i in range(0, len(programacao)): # Verificação do que irá ser gravado no arquivo
+    for i in range(0, len(programacao)): # Teste: Verificação do que irá ser gravado no arquivo
         print(programacao[i])
 
     gravar(programacao)
@@ -66,7 +53,8 @@ def gravar(programacao):
 
 def abrir_arq():
     file = open('programacao.txt', 'r')
-    print(file.readlines())
+    linhas = file.readlines()
+    print(linhas)# Teste
     file.close()
 
 def textoMenu():
@@ -102,19 +90,20 @@ def menu():
             opcao = textoMenu()
 
 # Método que recebe uma condição booleana True para executar um menu de escolha binária (Sim ou não)
-
-def escolha(cond):
-    while cond == True:
+def escolha(validacao):
+    while validacao != True:
+        print('Deseja adicionar mais exercicios?')
         escolha = int(input('1 - Sim\n'
                             '2 - Não\n'))
         if escolha != 1 and escolha != 2:
-            print('Escolha inválida!')
+            print('Opção inválida!\n' + 32 * '-')
+            validacao = False
         else:
             if escolha == 1:
                 cond = True
             if escolha == 2:
                 cond = False
-        print()
+            validacao = True
     return cond
 
 
